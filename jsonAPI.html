@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="fname" placeholder="First name" /><br />
+    <input type="text" id="lname" placeholder="Last name" /><br />
+    <button onclick="sendData()">Submit</button>
+
+    <script>
+        function sendData() {
+            let fname = document.getElementById('fname').value;
+            let lname = document.getElementById('lname').value;
+
+            if (fname == "" || fname == null) alert('First name');
+            else if (lname == "" || lname == null) alert('Last name');
+            else {
+                let raw = {
+                    'fname': fname,
+                    'lname': lname
+                }
+
+                let options = {
+                    method: 'POST',
+                    redirect: 'follow',
+                    body: JSON.stringify(raw)
+                };
+
+                fetch("jsonAPI.php", options)
+                    .then(response => response.json())
+                    .then(result => console.log(result))
+                    .catch(error => console.log('error', error));
+
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
