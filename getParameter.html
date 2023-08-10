@@ -13,6 +13,11 @@
         var url = new URL(window.location.href);
         var param = url.searchParams.get('param'); // default null
         console.log(param);
+        
+        var urlParams = new URLSearchParams(window.location.search);
+        var param2 = urlParams.get('param2');  // default null
+        console.log(param2);
+        
         document.getElementById('param').innerHTML = param;
     </script>
 </body>
