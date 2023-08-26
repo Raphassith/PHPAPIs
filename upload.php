@@ -6,7 +6,7 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, POST, DELETE, OPTIO
 // header("Access-Control-Allow-Headers: *");
 // header("Access-Control-Expose-Headers: Content-Length, X-JSON");
 
-if (isset($_FILES['img'])) {
+if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
     $extension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
     // $new_name = time() . '.' . $extension;
     $new_name = $_POST['name'] . '.' . $extension;
