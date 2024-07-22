@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set("Asia/Bangkok");
+
 $db_host = "";
 $db_name = "";
 $db_user = "";
